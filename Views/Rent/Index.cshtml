@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="row">
+    @using (Html.BeginForm("Save", "rent", FormMethod.Post, new { id = "popupForm" }))
+    {
+        <div>
+            <h1>Наем на кола</h1>
+        </div>
+        <div>
+            <div class="form-group">
+                <label class="form-label">Начална дата</label>
+                <input type="date" id="sdate" name="sdate" class="form-control" placeholder="Начална дата" required />
+            </div>
+            <div class="form-group">
+                <label class="form-label">Крайна дата</label>
+                <input type="date" id="edate" name="edate" class="form-control" placeholder="Крайна дата" required />
+            </div>
+            <div class="form-group">
+                <label class="form-label">Марка на колата</label>
+                @*this is for dropdown menu*@
+                <select class="form-control" id="idCar" name="brandCar" placeholder="Марка" required>
+                    <option>Избери</option>
+                </select>
+                @*@Html.DropDownList("MakeList", new SelectList(new object[0], "idCarModel","modelCar"))*@
+
+            </div>
+            <div class="form-group">
+                <label class="form-label">Модел на колата</label>
+                @*this is for dropdown menu*@
+                @*<select id="idCarModel" name="modelCar" disabled="disabled"></select>*@
+                <select class="form-control" id="idCarModel" name="modelCar" placeholder="Модел" required>
+                    <option>Избери</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Потребител</label>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Потребителско име" required />
+            </div>
+            <div class="form-group">
+                <div class="col-md">
+                    <input type="submit" value="Запази" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@section scripts
+{
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="/Scripts/ModelDropDown.js"></script>
+
+    @*this is to load the cars in the drop down menu*@
+
+    <script>
+        getCar();
+        function getCar() {
+            $.ajax({
+
+                type: 'GET',
+                url: '/rent/GetCar',
+                dataType: 'JSON',
+                success: function (data) {
+
+                    console.log(data);
+
+                    for (var i = 0; i < data.length; i++) {
+                        $("#idCar").append($("<option/>", {
+                            text: data[i].brandCar
+                        }));
+
+                        $("#idCarModel").append($("<option/>", {
+                            text: data[i].modelCar
+                        }));
+                    }
+                }
+            });
+        }
+    </script>
+}

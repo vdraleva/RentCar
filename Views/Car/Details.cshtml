@@ -1,0 +1,58 @@
+﻿@model RentCar.Models.carInfoTable
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Детайли</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.brandCar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.brandCar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.modelCar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.modelCar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.yearCar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.yearCar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numberSeats)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numberSeats)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.priceCar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.priceCar)
+        </dd>
+
+     
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редактирай", "Edit", new { id = Model.idCar }) |
+    @Html.ActionLink("Назад", "Index")
+</p>

@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RentCarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="carInfoTable">
+          <Key>
+            <PropertyRef Name="idCar" />
+          </Key>
+          <Property Name="idCar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="brandCar" Type="nvarchar" MaxLength="50" />
+          <Property Name="modelCar" Type="nvarchar" MaxLength="50" />
+          <Property Name="yearCar" Type="nchar" MaxLength="4" />
+          <Property Name="numberSeats" Type="nchar" MaxLength="10" />
+          <Property Name="priceCar" Type="float" />
+        </EntityType>
+        <EntityType Name="RentCarTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Start_Date" Type="date" />
+          <Property Name="End_Date" Type="date" />
+          <Property Name="Brand" Type="nvarchar" MaxLength="50" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" />
+          <Property Name="Owner" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="userTable">
+          <Key>
+            <PropertyRef Name="idUser" />
+          </Key>
+          <Property Name="idUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="nameUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="familyUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="EGN" Type="nchar" MaxLength="10" />
+          <Property Name="phone" Type="nchar" MaxLength="10" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="role" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="SpGetModelCarByBrand" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="brand" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="RentCarModelStoreContainer">
+          <EntitySet Name="carInfoTable" EntityType="Self.carInfoTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RentCarTable" EntityType="Self.RentCarTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userTable" EntityType="Self.userTable" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RentCarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="userTable">
+          <Key>
+            <PropertyRef Name="idUser" />
+          </Key>
+          <Property Name="idUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nameUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="familyUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EGN" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="RentCarEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="userTable" EntityType="Self.userTable" />
+          <EntitySet Name="carInfoTable" EntityType="RentCarModel.carInfoTable" />
+          <FunctionImport Name="SpGetModelCarByBrand" ReturnType="Collection(RentCarModel.SpGetModelCarByBrand_Result)">
+          <Parameter Name="brand" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="RentCarTable" EntityType="RentCarModel.RentCarTable" />
+        </EntityContainer>
+        <EntityType Name="carInfoTable">
+          <Key>
+            <PropertyRef Name="idCar" />
+          </Key>
+          <Property Name="idCar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="brandCar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="modelCar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="yearCar" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Name="numberSeats" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="priceCar" Type="Double" />
+        </EntityType>
+        <ComplexType Name="SpGetModelCarByBrand_Result">
+          <Property Type="String" Name="brandCar" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="modelCar" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="RentCarTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Start_Date" Type="DateTime" Precision="0" />
+          <Property Name="End_Date" Type="DateTime" Precision="0" />
+          <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Owner" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RentCarModelStoreContainer" CdmEntityContainer="RentCarEntities1">
+          <EntitySetMapping Name="userTable">
+            <EntityTypeMapping TypeName="RentCarModel.userTable">
+              <MappingFragment StoreEntitySet="userTable">
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="idUser" ColumnName="idUser" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="nameUser" ColumnName="nameUser" />
+                <ScalarProperty Name="familyUser" ColumnName="familyUser" />
+                <ScalarProperty Name="EGN" ColumnName="EGN" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="carInfoTable">
+            <EntityTypeMapping TypeName="RentCarModel.carInfoTable">
+              <MappingFragment StoreEntitySet="carInfoTable">
+                <ScalarProperty Name="priceCar" ColumnName="priceCar" />
+                <ScalarProperty Name="numberSeats" ColumnName="numberSeats" />
+                <ScalarProperty Name="yearCar" ColumnName="yearCar" />
+                <ScalarProperty Name="modelCar" ColumnName="modelCar" />
+                <ScalarProperty Name="brandCar" ColumnName="brandCar" />
+                <ScalarProperty Name="idCar" ColumnName="idCar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SpGetModelCarByBrand" FunctionName="RentCarModel.Store.SpGetModelCarByBrand">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RentCarModel.SpGetModelCarByBrand_Result">
+                <ScalarProperty Name="brandCar" ColumnName="brandCar" />
+                <ScalarProperty Name="modelCar" ColumnName="modelCar" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="RentCarTable">
+            <EntityTypeMapping TypeName="RentCarModel.RentCarTable">
+              <MappingFragment StoreEntitySet="RentCarTable">
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="End_Date" ColumnName="End_Date" />
+                <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

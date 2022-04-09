@@ -1,0 +1,81 @@
+﻿@model RentCar.Models.userTable
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Детайли</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nameUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nameUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.familyUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.familyUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EGN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EGN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.role)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.role)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редактирай", "Edit", new { id = Model.idUser }) |
+    @Html.ActionLink("Назад", "Index")
+</p>

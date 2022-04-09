@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "AboutUs";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/main.css" />
+</head>
+<body class="homepage is-preload" >
+    <div class="wrapper style3">
+        <div class="inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-8 col-12-medium">
+                        <section class="box article-list">
+                            <div>
+                               <br />
+                                <h2>Малко повече за фирмата!</h2>
+                                <p>От скоро сме в този бизнес, но сме наясно с всички тънкости и неясноти в тази област!
+                                Имаме за цел да предоставим на нашите клиенти най-доброто, а именно чисти, 
+                                добре поддържани автомобили за вашите нужди! Умеем да разговаряме с нашите клиенти и да им
+                                предоставяме възможно най-добрият автомобил, който те са си представяли!</p>
+                                <br />
+                                <p>В нашият сайт ще откриете информация за всички налични автомобили! Чрез сърч менюто ще 
+                                можете да намерите определен модел автомобил! След като сортирате определения желан период 
+                                за наем на кола, на екрана ще ви се покажат всички налични превозни средства за 
+                                конкретната дата! Ако не намирате подходящ автомобил за конкретната дата, молим да се 
+                                свържете с нас на по-долу посочените телефони за връзка!</p>
+                                <br />
+                            </div>
+                            <h2 class="icon fa-file-alt">За нас</h2>
+                            <!--main body-->
+                            <div class="about-section">
+                                <div class="row">
+                                    <div class="column">
+                                        <div class="card">
+                                            <a href="aboutUs.html" class="image center" style="width: 45%; align-content: center"><img src="~/fonts/viki.jpg" alt="viki" /></a>
+                                            <div class="container">
+                                                <h2 style="width: 25%; text-align: left">Виктория Дралева</h2>
+                                                <p class="title"><strong>Любим кола: </strong>Сузуки Sx4</p>
+                                                <img src="~/fonts/darkbluesx4.jpg" alt="carSX$" style="width: 40%" />
+                                                <p> <strong>За мен и проекта: </strong>Аз съм Вики от Благоевград и съм ученичка в 12-ти клас . Креативна личност съм, тренирам бойни изкуства и обичам да готвя здравословно. Имам блог, в който качвам любимите си рецепти! Най-скорошното ми хоби са колите, запалих се покрай приятеля ми, и за това създадох тази платформа за коли под наем!</p>
+                                                <p><button class="button">контакти</button></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Footer Wrapper -->
+    <div id="footer-wrapper">
+        <footer id="footer" class="container">
+            <div class="row">
+                <!-- Links -->
+                <section>
+                    <h2>На кратко</h2>
+                    <ul class="divided">
+                        <li>@Html.ActionLink("Коли под наем", "Index", "Car", new { area = "" }, new { @class = "navbar-brand" })</li>
+                        <li>@Html.ActionLink("За нас", "AboutUs", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    </ul>
+                </section>
+            </div>
+            <br>
+            <div class="col-6 col-12-medium imp-medium">
+                <!-- About -->
+                <section>
+                    <h2>Представям ви<strong> кратка информация за мен</strong></h2>
+                    <p>Здравейте, аз съм ученичка от 12 клас в ПМГ Благоевград.</p>
+                    <li class="button alt icon solid fa-arrow-circle-right">@Html.ActionLink("Повече за нас...", "AboutUs", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                </section>
+
+                <!-- Contact -->
+                <section>
+                    <h2>За контакти с нас</h2>
+                    <div>
+                        <div class="row">
+                            <div class="col-6 col-12-small">
+                                <dl class="contact">
+                                    <dt>Facebook</dt>
+                                    <dd><a href="#">facebook.com/avtonaemblg</a></dd>
+                                    <dt>Email</dt>
+                                    <dd><a href="#">avtonaem_blg@gmail.com</a></dd>
+                                    <dt>Instagram</dt>
+                                    <dd><a href="#"> instagram/avtonaembg</a></dd>
+                                </dl>
+                            </div>
+                            <div class="col-6 col-12-small">
+                                <dl class="contact">
+                                    <dt>Address</dt>
+                                    <dd>
+                                        2700 бул."Марица"<br />
+                                        Благоевград<br />
+                                        България
+                                    </dd>
+                                    <dt>Телефон</dt>
+                                    <dd>0897690212</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                </div>
+        </footer>
+    </div>
+</body>
+</html>

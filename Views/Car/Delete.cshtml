@@ -1,0 +1,63 @@
+﻿@model RentCar.Models.carInfoTable
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Изтрий</h2>
+
+<h3>Сигурни ли сте, че искате да го изтриете?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.brandCar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.brandCar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.modelCar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.modelCar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.yearCar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.yearCar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numberSeats)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numberSeats)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.priceCar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.priceCar)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Назад", "Index")
+        </div>
+    }
+</div>

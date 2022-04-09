@@ -1,0 +1,44 @@
+﻿@model IEnumerable<RentCar.Models.userTable>
+@{
+    ViewBag.Title = "Index";
+}
+
+<body style="background-image: url('../fonts/carBackground.jpg'); background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;">
+
+    @if (!this.User.Identity.IsAuthenticated)
+    {
+        <div style="position: absolute; width: 700px;
+               height: 500px;  top: 40%; left: 20%;
+        margin: -100px 0 0 -150px;">
+            <div class="text-center">
+                <h1 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Наем на коли! Бързо и лесно откривате точната кола за вас!</h1>
+                <h3 class="">
+                    <a href="Home/Login">Влезте</a>, ако имате вече акаунт!
+                </h3>
+                <h3>
+                    <a href="Home/Register">Регистрирайте се</a>, ако все още не сте се!
+                </h3>
+            </div>
+        </div>
+    }
+    else
+    {
+    <div style="position: absolute; width: 700px;
+               height: 500px;  top: 40%; left: 20%;
+        margin: -100px 0 0 -150px;">
+        <div class="text-center">
+            <h2 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                Добре дошли в нашата платформа за наем на коли!
+            </h2>
+            <h4 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Ако желаете да разберете повече за нас кликнете <a href="Home/AboutUs">тук</a></h4>
+            <h4 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Ако желаете да наемете кола, може да направите своята заявка от <a href="Rent/Index">тук</a></h4>
+        </div>
+    </div>
+    }
+
+</body>
+
+
+

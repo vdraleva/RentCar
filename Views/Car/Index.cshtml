@@ -1,0 +1,56 @@
+﻿@model IEnumerable<RentCar.Models.carInfoTable>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Коли</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.brandCar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.modelCar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.yearCar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numberSeats)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.priceCar)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.brandCar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.modelCar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.yearCar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numberSeats)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.priceCar)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idCar }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idCar }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idCar })
+        </td>
+    </tr>
+}
+
+</table>
